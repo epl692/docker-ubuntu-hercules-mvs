@@ -10,20 +10,20 @@ RUN   apt-get update && \
       cd /opt && \
       mkdir hercules && \
       cd hercules && \
-      mkdir tk4 && \
-      cd tk4 && \
-      wget --no-check-certificate https://wotho.ethz.ch/tk4-/tk4-_v1.00_current.zip && \
-      unzip tk4-_v1.00_current.zip && \
-      rm  tk4-_v1.00_current.zip && \
+      mkdir tk5 && \
+      cd tk5 && \
+      wget --no-check-certificate https://www.prince-webdesign.nl/images/downloads/mvs-tk5.zip && \
+      unzip mvs-tk5.zip && \
+      rm  mvs-tk5.zip && \
       #echo 0010 3270 CONS >> /opt/hercules/tk4/conf/intcons.cnf && \
-      rm -rf /opt/hercules/tk4/hercules/source && \
-      rm -rf /opt/hercules/tk4/hercules/patches && \
-      rm -rf /opt/hercules/tk4/hercules/windows && \
+      rm -rf /opt/hercules/tk5/hercules/source && \
+      rm -rf /opt/hercules/tk5/hercules/patches && \
+      rm -rf /opt/hercules/tk5/hercules/windows && \
       apt-get -y purge wget unzip && \
       apt-get -y autoclean && apt-get -y autoremove && \
       apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
       rm -rf /var/lib/apt/lists/*
 
 EXPOSE      3270 8038
-WORKDIR     /opt/hercules/tk4/
-ENTRYPOINT  ["/opt/hercules/tk4/mvs"]
+WORKDIR     /opt/hercules/tk5/
+ENTRYPOINT  ["/opt/hercules/tk5/mvs"]
